@@ -6,9 +6,9 @@ const nonConstructibleChange = function (coins) {
 
   for (let coin of coins) {
     if (coin > accumlatorChange) {
-      return accumlatorChange + 1;
+      return accumlatorChange;
     }
-    accumlatorChange += 1;
+    accumlatorChange += coin;
   }
   return accumlatorChange;
 };
