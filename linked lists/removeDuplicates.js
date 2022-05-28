@@ -22,6 +22,14 @@ const node4 = new Node(7, node5);
 const node3 = new Node(5, node4);
 const node2 = new Node(4, node3);
 const node1 = new Node(2, node2);
-const linkedList = new LinkedList(node1, node5);
+const linkedList = new LinkedList();
+linkedList.push_back(2);
+linkedList.push_back(4);
+linkedList.push_back(5);
+linkedList.push_back(7);
+linkedList.push_back(9);
 
 printList(linkedList);
+console.log(linkedList.size);
+console.log(linkedList.head.value);
+console.log(linkedList.tail.value);

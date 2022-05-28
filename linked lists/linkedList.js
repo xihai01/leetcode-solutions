@@ -7,9 +7,39 @@ class Node {
 
 class LinkedList {
   constructor(head = null, tail = null) {
-    this.size = 0;
+    this._size = 0;
     this.head = head;
     this.tail = tail;
+  }
+
+  get size() {
+    return this._size;
+  }
+
+  set size(size) {
+    this._size += size;
+  }
+
+  // linked list methods //
+
+  empty() {
+    if (this.head === null && this.tail === null) {
+      return true;
+    }
+    return false;
+  }
+
+  // adds a new node with value at end
+  push_back(value) {
+    const newNode = new Node(value);
+    if (this.head === null) {
+      this.head = newNode;
+    } else {
+      const lastNode = this.tail;
+      lastNode.next = newNode;
+    }
+    this.tail = newNode;
+    this.size = 1;
   }
 }
 
