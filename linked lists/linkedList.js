@@ -41,6 +41,47 @@ class LinkedList {
     this.tail = newNode;
     this.size = 1;
   }
+
+  // adds a new node with value at front
+  push_front(value) {
+    const newNode = new Node(value);
+    this.head === null ? (this.tail = newNode) : (newNode.next = this.head);
+    this.head = newNode;
+    this.size = 1;
+  }
+
+  // removes last node and returns its value
+  pop_back() {
+    if (this.tail === null) {
+      return null;
+    }
+    const value = this.tail.value;
+    let currNode = this.head;
+    while (currNode.next !== this.tail) {
+      currNode = currNode.next;
+    }
+    currNode.next = null;
+    this.tail = currNode;
+    this.size = -1;
+    return value;
+  }
+
+  // removes first node and returns its value
+  pop_front() {
+    if (this.head === null) {
+      return null;
+    }
+    const value = this.head.value;
+    // one item
+    if (this.head === this.tail) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = this.head.next;
+    }
+    this.size = -1;
+    return value;
+  }
 }
 
 const printList = function (linkedList) {

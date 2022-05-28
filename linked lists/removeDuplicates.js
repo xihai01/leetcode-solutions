@@ -28,6 +28,9 @@ linkedList.push_back(4);
 linkedList.push_back(5);
 linkedList.push_back(7);
 linkedList.push_back(9);
+linkedList.push_front(1);
+console.log(linkedList.pop_back());
+console.log(linkedList.pop_front());
 
 printList(linkedList);
 console.log(linkedList.size);
