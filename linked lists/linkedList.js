@@ -82,6 +82,35 @@ class LinkedList {
     this.size = -1;
     return value;
   }
+
+  // returns the value of the nth item (starting at 0)
+  value_at(index) {
+    // return last item's value when user tries to access out of bounds
+    if (index + 1 >= this.size) {
+      return this.tail.value;
+    }
+    let currNode = this.head;
+    for (let i = 0; i < index; i++) {
+      currNode = currNode.next;
+    }
+    return currNode.value;
+  }
+
+  // get value of front of item
+  front() {
+    if (this.head === null) {
+      return null;
+    }
+    return this.head.value;
+  }
+
+  //get value of end item
+  back() {
+    if (this.tail === null) {
+      return null;
+    }
+    return this.tail.value;
+  }
 }
 
 const printList = function (linkedList) {

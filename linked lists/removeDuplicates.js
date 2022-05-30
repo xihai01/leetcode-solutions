@@ -36,3 +36,7 @@ printList(linkedList);
 console.log(linkedList.size);
 console.log(linkedList.head.value);
 console.log(linkedList.tail.value);
+console.log(linkedList.value_at(0));
+console.log(linkedList.value_at(2));
+console.log(linkedList.value_at(4));
+
