@@ -28,15 +28,11 @@ linkedList.push_back(4);
 linkedList.push_back(5);
 linkedList.push_back(7);
 linkedList.push_back(9);
-linkedList.push_front(1);
-console.log(linkedList.pop_back());
-console.log(linkedList.pop_front());
+linkedList.insert(0, 1);
+/* linkedList.insert(2, 6);
+linkedList.insert(4, 7); */
 
 printList(linkedList);
 console.log(linkedList.size);
 console.log(linkedList.head.value);
 console.log(linkedList.tail.value);
-console.log(linkedList.value_at(0));
-console.log(linkedList.value_at(2));
-console.log(linkedList.value_at(4));
-

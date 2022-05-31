@@ -104,12 +104,38 @@ class LinkedList {
     return this.head.value;
   }
 
-  //get value of end item
+  // get value of end item
   back() {
     if (this.tail === null) {
       return null;
     }
     return this.tail.value;
+  }
+
+  // insert value at index, so current item is pointed to by new iten
+  insert(index, value) {
+    const newNode = new Node(value);
+    if (this.head === null) {
+      this.head = newNode;
+      this.tail = newNode;
+      return newNode;
+    }
+    if (index === 0) {
+      newNode.next = this.head;
+      this.head = newNode;
+      return newNode;
+    }
+    // return null if index is greater than size
+    if (index + 1 > this.size || index < 0) {
+      return null;
+    }
+    let currNode = this.head;
+    for (let i = 0; i < index - 1; i++) {
+      currNode = currNode.next;
+    }
+    newNode.next = currNode.next;
+    currNode.next = newNode;
+    return newNode;
   }
 }
 
