@@ -29,7 +29,7 @@ linkedList.push_back(5);
 linkedList.push_back(7);
 linkedList.push_back(9);
 //linkedList.insert(0, 1);
-linkedList.erase(4);
+console.log(linkedList.value_n_from_end(-1));
 /* linkedList.insert(2, 6);
 linkedList.insert(4, 7); */
 

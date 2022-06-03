@@ -170,6 +170,21 @@ class LinkedList {
     this.size = -1;
     return;
   }
+
+  // returns the value of the node at nth position from the end
+  value_n_from_end(n) {
+    if (this.head === null) {
+      return null;
+    }
+    if (n + 1 > this.size || n < 0) {
+      return null;
+    }
+    let currNode = this.head;
+    for (let i = this.size - n; i > 1; i--) {
+      currNode = currNode.next;
+    }
+    return currNode.value;
+  }
 }
 
 const printList = function (linkedList) {
