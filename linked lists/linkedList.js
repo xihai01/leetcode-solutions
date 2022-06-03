@@ -120,14 +120,15 @@ class LinkedList {
       this.tail = newNode;
       return newNode;
     }
-    if (index === 0) {
-      newNode.next = this.head;
-      this.head = newNode;
-      return newNode;
-    }
     // return null if index is greater than size
     if (index + 1 > this.size || index < 0) {
       return null;
+    }
+    if (index === 0) {
+      newNode.next = this.head;
+      this.head = newNode;
+      this.size = 1;
+      return newNode;
     }
     let currNode = this.head;
     for (let i = 0; i < index - 1; i++) {
@@ -135,7 +136,39 @@ class LinkedList {
     }
     newNode.next = currNode.next;
     currNode.next = newNode;
+    this.size = 1;
     return newNode;
+  }
+
+  // remove the node at a given index
+  erase(index) {
+    if (this.head === null) {
+      return null;
+    }
+    if (index + 1 > this.size || index < 0) {
+      return null;
+    }
+    if (this.size === 1 && index === 0) {
+      this.head = null;
+      this.tail = null;
+      this.size = -1;
+      return;
+    }
+    if (index === 0) {
+      this.head = this.head.next;
+      this.size = -1;
+      return;
+    }
+    let currNode = this.head;
+    for (let i = 0; i < index - 1; i++) {
+      currNode = currNode.next;
+    }
+    if (index + 1 === this.size) {
+      this.tail = currNode;
+    }
+    currNode.next = currNode.next.next;
+    this.size = -1;
+    return;
   }
 }
 
