@@ -2,20 +2,41 @@ const { Node, LinkedList, printList } = require("./linkedList");
 
 // solution 1
 // time - O(n) | space - O(1)
+// 1 -> 1 -> 2 -> 2-> 3
 const removeDuplicates = function (linkedList) {
-  if (linkedList.next === null) return null;
-  let lastUniqueNode = linkedList;
-  let nextNode = linkedList;
+  if (linkedList.next === null) return linkedList;
+  let lastUniqueNode = linkedList; // 1
+  let nextNode = linkedList; // 1
   while (nextNode !== null) {
-    if (nextNode.value === lastUniqueNode.value) {
-      // update last..Node to point to nextNode
-      lastUniqueNode = nextNode;
-    }
     // update nextNode to point to next node
     nextNode = nextNode.next;
+    if (nextNode === null) {
+      lastUniqueNode.next = nextNode;
+    } else if (nextNode.value !== lastUniqueNode.value) {
+      // update last..Node to point to nextNode
+      lastUniqueNode.next = nextNode;
+      lastUniqueNode = nextNode;
+    }
   }
-  return null;
+  return linkedList;
 };
+
+/* const removeDuplicates = function (linkedList) {
+  if (linkedList.next === null) return linkedList;
+  let lastUniqueNode = linkedList; // 3
+  let nextNode = linkedList; // null
+  while (nextNode !== null) {
+    if (nextNode.value === lastUniqueNode.value) {
+      // update nextNode to point to next node
+      nextNode = nextNode.next;
+    } else {
+      // update last..Node to point to nextNode
+      lastUniqueNode.next = nextNode;
+      lastUniqueNode = nextNode;
+    }
+  }
+  return linkedList;
+}; */
 
 const node5 = new Node(9);
 const node4 = new Node(7, node5);
