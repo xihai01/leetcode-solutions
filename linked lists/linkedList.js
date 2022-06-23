@@ -185,6 +185,23 @@ class LinkedList {
     }
     return currNode.value;
   }
+
+  // reverses the list
+  reverse() {
+    const linkedList = new LinkedList();
+    let target = this.size;
+    while (target > 0) {
+      let currPointer = this.head;
+      // iterate to target
+      for (let i = 1; i < target; i++) {
+        currPointer = currPointer.next;
+      }
+      // push the data in target node to new linked list
+      linkedList.push_back(currPointer.value);
+      target--;
+    }
+    return linkedList;
+  }
 }
 
 const printList = function (linkedList) {

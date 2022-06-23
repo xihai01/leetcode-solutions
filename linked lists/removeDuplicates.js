@@ -50,7 +50,7 @@ linkedList.push_back(5);
 linkedList.push_back(7);
 linkedList.push_back(9);
 //linkedList.insert(0, 1);
-console.log(linkedList.value_n_from_end(-1));
+console.log(linkedList.value_n_from_end(2));
 /* linkedList.insert(2, 6);
 linkedList.insert(4, 7); */
 
@@ -58,3 +58,4 @@ printList(linkedList);
 console.log(linkedList.size);
 console.log(linkedList.head.value);
 console.log(linkedList.tail.value);
+printList(linkedList.reverse());
