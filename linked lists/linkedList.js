@@ -202,6 +202,39 @@ class LinkedList {
     }
     return linkedList;
   }
+
+  // removes the first item in the list with this value
+  remove_value(value) {
+    if (this.head === null) return;
+    if (this.size === 1 && this.head.value === value) {
+      this.head = null;
+      this.tail = null;
+      this.size = -1;
+      return;
+    }
+    if (this.head.value === value) {
+      this.head = this.head.next;
+      this.size = -1;
+      return;
+    }
+    let prevNode = this.head;
+    let currNode = this.head.next;
+    while (currNode !== null) {
+      if (currNode.value === value) {
+        // remove this node by connecting prevNode to the node currNode points at
+        prevNode.next = currNode.next;
+        this.size = -1;
+        break;
+      }
+      prevNode = prevNode.next;
+      currNode = currNode.next;
+    }
+    // update tail pointer if last node to be removed
+    if (currNode.next === null) {
+      this.tail = prevNode;
+    }
+    return;
+  }
 }
 
 const printList = function (linkedList) {
